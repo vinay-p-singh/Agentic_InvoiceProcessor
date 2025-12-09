@@ -1,0 +1,117 @@
+### Test Invoice Processing
+POST http://localhost:7071/api/orchestrators/process_invoice
+Content-Type: application/json
+
+{
+  "query": "Please validate this invoice",
+  "Invoice": {
+    "OrderNumber": "",
+    "InvoiceNumber": "405993",
+    "InvoiceDate": "March 29, 2025",
+    "InvoiceBaseAmount": "42.35",
+    "InvoiceWithTaxAmount": "50.82",
+    "InvoiceLineItems": [
+      {
+        "LineItemNo": "1",
+        "Product": "Level II Cloud VPS",
+        "Quantity": "1",
+        "UnitPrice": "42.35",
+        "Amount": "42.35"
+      }
+    ]
+  },
+  "Attachments": [
+    {
+      "DocumentType": "Invoice",
+      "FileName": "demo-invoice-20tax-5.pdf",
+      "FileType": "PDF",
+      "FileUrl": "./sample-invoices/demo-invoice-20tax-5.pdf"
+    }
+  ]
+}
+
+### Test Invoice Processing - Larger Invoice
+POST http://localhost:7071/api/orchestrators/process_invoice
+
+{
+  "query": "Please validate this invoice",
+  "Invoice": {
+    "OrderNumber": "000037",
+    "InvoiceNumber": "86864",
+    "InvoiceDate": "3/29/2025",
+    "InvoiceBaseAmount": "1072.83",
+    "InvoiceWithTaxAmount": "1287.40",
+    "InvoiceLineItems": [
+      { "LineItemNo": "1", "Product": "Catalyst 1 liter", "Quantity": "10", "UnitPrice": "59.99", "Amount": "500.00" },
+      { "LineItemNo": "2", "Product": "Resin", "Quantity": "10", "UnitPrice": "59.99", "Amount": "500.00" },
+      { "LineItemNo": "3", "Product": "Deionized water", "Quantity": "5", "UnitPrice": "1.99", "Amount": "9.95" },
+      { "LineItemNo": "4", "Product": "Potassium Hydroxide", "Quantity": "1", "UnitPrice": "17.99", "Amount": "17.99" },
+      { "LineItemNo": "5", "Product": "EDTA", "Quantity": "10", "UnitPrice": "1.49", "Amount": "14.90" },
+      { "LineItemNo": "6", "Product": "Polymer", "Quantity": "1", "UnitPrice": "29.99", "Amount": "29.99" }
+    ]
+  },
+  "Attachments": [
+    {
+      "DocumentType": "Invoice",
+      "FileName": "demo-invoice-20tax-1.pdf",
+      "FileType": "PDF",
+      "FileUrl": "./sample-invoices/demo-invoice-20tax-1.pdf"
+    }
+  ]
+}
+
+### Test Invoice Processing - Large Detailed Invoice
+POST http://localhost:7071/api/orchestrators/process_invoice
+
+{
+  "query": "Please validate this invoice",
+  "Invoice": {
+    "OrderNumber": "000037",
+    "InvoiceNumber": "45474",
+    "InvoiceDate": "3/29/2025",
+    "InvoiceBaseAmount": "1046.16",
+    "InvoiceWithTaxAmount": "1255.39",
+    "InvoiceLineItems": [
+      { "LineItemNo": "1", "Product": "Polyol", "Quantity": "5", "UnitPrice": "1.99", "Amount": "9.95" },
+      { "LineItemNo": "2", "Product": "Diisocyanate", "Quantity": "5", "UnitPrice": "1.99", "Amount": "9.95" },
+      { "LineItemNo": "3", "Product": "Carbon Dioxide", "Quantity": "5", "UnitPrice": "1.99", "Amount": "9.95" },
+      { "LineItemNo": "4", "Product": "Laser", "Quantity": "5", "UnitPrice": "1.99", "Amount": "9.95" },
+      { "LineItemNo": "5", "Product": "Lens", "Quantity": "5", "UnitPrice": "1.99", "Amount": "9.95" },
+      { "LineItemNo": "6", "Product": "Oleic Acid", "Quantity": "5", "UnitPrice": "1.99", "Amount": "9.95" },
+      { "LineItemNo": "7", "Product": "Glycerine", "Quantity": "5", "UnitPrice": "1.99", "Amount": "9.95" },
+      { "LineItemNo": "8", "Product": "Sodium Tallowate", "Quantity": "10", "UnitPrice": "4.99", "Amount": "49.90" },
+      { "LineItemNo": "9", "Product": "Paint Base", "Quantity": "10", "UnitPrice": "4.99", "Amount": "49.90" },
+      { "LineItemNo": "10", "Product": "Polypropylene", "Quantity": "5", "UnitPrice": "1.99", "Amount": "9.95" },
+      { "LineItemNo": "11", "Product": "Rubber", "Quantity": "1", "UnitPrice": "10.99", "Amount": "10.99" },
+      { "LineItemNo": "12", "Product": "Additive", "Quantity": "1", "UnitPrice": "10.99", "Amount": "10.99" },
+      { "LineItemNo": "13", "Product": "Pigment", "Quantity": "1", "UnitPrice": "10.99", "Amount": "10.99" },
+      { "LineItemNo": "14", "Product": "Aluminum Silicate", "Quantity": "5", "UnitPrice": "1.99", "Amount": "9.95" },
+      { "LineItemNo": "15", "Product": "Magnesium Silicate", "Quantity": "10", "UnitPrice": "4.99", "Amount": "49.90" },
+      { "LineItemNo": "16", "Product": "Zinc Oxide", "Quantity": "10", "UnitPrice": "4.99", "Amount": "49.90" },
+      { "LineItemNo": "17", "Product": "Distilled Solvent", "Quantity": "10", "UnitPrice": "4.99", "Amount": "49.90" },
+      { "LineItemNo": "18", "Product": "Petroleum Distillate", "Quantity": "5", "UnitPrice": "1.99", "Amount": "9.95" },
+      { "LineItemNo": "19", "Product": "Sulfur Dioxide", "Quantity": "10", "UnitPrice": "3.99", "Amount": "39.90" },
+      { "LineItemNo": "20", "Product": "Sodium Benzoate", "Quantity": "10", "UnitPrice": "3.99", "Amount": "39.90" },
+      { "LineItemNo": "21", "Product": "Dust cap", "Quantity": "5", "UnitPrice": "1.99", "Amount": "9.95" },
+      { "LineItemNo": "22", "Product": "Ferrite cap", "Quantity": "1", "UnitPrice": "9.95", "Amount": "9.95" },
+      { "LineItemNo": "23", "Product": "Cone and coil assembly", "Quantity": "1", "UnitPrice": "9.95", "Amount": "9.95" },
+      { "LineItemNo": "24", "Product": "Cleaner", "Quantity": "5", "UnitPrice": "1.99", "Amount": "9.95" },
+      { "LineItemNo": "25", "Product": "Polypropylene pellets", "Quantity": "1", "UnitPrice": "16.50", "Amount": "16.50" },
+      { "LineItemNo": "26", "Product": "Polypropylene chips", "Quantity": "7", "UnitPrice": "36.50", "Amount": "255.50" },
+      { "LineItemNo": "27", "Product": "Polypropylene blocks", "Quantity": "10", "UnitPrice": "9.99", "Amount": "99.90" },
+      { "LineItemNo": "28", "Product": "Polypropylene slag", "Quantity": "10", "UnitPrice": "9.99", "Amount": "99.90" },
+      { "LineItemNo": "29", "Product": "Parts Wash Solvent", "Quantity": "5", "UnitPrice": "1.99", "Amount": "9.95" },
+      { "LineItemNo": "30", "Product": "Jar", "Quantity": "1", "UnitPrice": "17.99", "Amount": "17.99" },
+      { "LineItemNo": "31", "Product": "Plastic Bottle – 15.2 FL Oz (450 ml)", "Quantity": "10", "UnitPrice": "1.49", "Amount": "14.90" },
+      { "LineItemNo": "32", "Product": "Polymer", "Quantity": "5", "UnitPrice": "5.99", "Amount": "29.95" }
+    ]
+  },
+  "Attachments": [
+    {
+      "DocumentType": "Invoice",
+      "FileName": "demo-invoice-20tax-4.pdf",
+      "FileType": "PDF",
+      "FileUrl": "./sample-invoices/demo-invoice-20tax-4.pdf"
+    }
+  ]
+}

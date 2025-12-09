@@ -1,0 +1,31 @@
+### Test PDF Extraction API
+POST http://localhost:8000/extract
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="prompt"
+
+Extract the invoice data into a JSON object with the following structure to facilitate validation:
+    {
+        "InvoiceNumber": "string",
+        "OrderNumber": "string",
+        "InvoiceDate": "string",
+        "InvoiceBaseAmount": "number or string",
+        "InvoiceWithTaxAmount": "number or string",
+        "LineItems": [
+            {
+                "Description": "string",
+                "Quantity": "number",
+                "UnitPrice": "number",
+                "Amount": "number"
+            }
+        ]
+    }
+    Ensure all amounts are extracted accurately
+
+--boundary
+Content-Disposition: form-data; name="file"; filename="demo-invoice-20tax-1.pdf"
+Content-Type: application/pdf
+
+< ./sample-invoices/demo-invoice-20tax-1.pdf
+--boundary--
